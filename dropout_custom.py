@@ -808,3 +808,65 @@ class Dropout_custom17(Layer):
         }
         base_config = super(Dropout_custom17, self).get_config()
         return dict(list(base_config.items()) + list(config.items()))
+
+# Adjust dropout rate based on firing rate and max_d with scaling
+class Dropout_custom18(Layer):
+    def __init__(self, max_d, noise_shape=None, seed=None, **kwargs):
+        super(Dropout_custom18, self).__init__(**kwargs)
+        if isinstance(rate, (int, float)) and not 0 <= rate <= 1:
+            raise ValueError(f'Invalid value {rate} received for '
+                             f'`max_d`, expected a value between 0 and 1.')
+        self.rate = rate
+        self.noise_shape = noise_shape
+        self.seed = seed
+        self.supports_masking = True
+
+    def _get_noise_shape(self, inputs):
+        if self.noise_shape is None:
+            return None
+
+        concrete_inputs_shape = array_ops.shape(inputs)
+        noise_shape = []
+        for i, value in enumerate(self.noise_shape):
+            noise_shape.append(concrete_inputs_shape[i] if value is None else value)
+        return ops.convert_to_tensor_v2_with_dispatch(noise_shape)
+
+    def call(self, inputs, training=None):
+        if training is None:
+            training = backend.learning_phase()
+    
+        def dropped_inputs():
+            # Calculate firing rate for each neuron
+            r = tf.reduce_mean(inputs, axis=0, keepdims=True)
+    
+            # Calculate dropout rate based on r for each neuron (Dropout rate varies from 0 to rate.)
+            d = self.rate * r
+            
+            # Generate dropout mask with different dropout rates
+            random_tensor = tf.random.uniform(shape=tf.shape(inputs), dtype=inputs.dtype, seed=self.seed)
+            keep_mask = random_tensor > d
+    
+            # Apply dropout mask
+            dropped = inputs * tf.cast(keep_mask, dtype=inputs.dtype)
+            
+            # Scale the output
+            scaling_factor = 1.0 / (1.0 - d)
+            scaled_output = dropped * scaling_factor
+    
+            return scaled_output
+
+        output = control_flow_util.smart_cond(training, dropped_inputs,
+                                              lambda: tf.identity(inputs))
+        return output
+
+    def compute_output_shape(self, input_shape):
+        return input_shape
+
+    def get_config(self):
+        config = {
+            'rate': self.rate,
+            'noise_shape': self.noise_shape,
+            'seed': self.seed
+        }
+        base_config = super(Dropout_custom18, self).get_config()
+        return dict(list(base_config.items()) + list(config.items()))
