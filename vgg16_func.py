@@ -121,7 +121,7 @@ def VGG16(
     else:
         norm_c1 = syn_c1
     a_c1 = lib_snn.activations.Activation(act_type=act_type,name='n_conv1')(norm_c1)
-    a_d_c1 = layers_new.dropout.Dropout_custom17(dropout_conv_r[0], name='conv1_do_cu9')(a_c1)
+    a_d_c1 = layers_new.dropout.Dropout_custom18(dropout_conv_r[0], name='conv1_do_cu9')(a_c1)
     #a_d_c1 = tf.keras.layers.Dropout(dropout_conv_r[0], name='conv1_do')(a_c1)
     #x = lib_snn.layers.Conv2D(channels, 3, padding='SAME', activation=act_relu, use_bn=use_bn_feat, kernel_initializer=k_init, name='conv1_1')(x)
     syn_c1_1 = lib_snn.layers.Conv2D(channels, 3, padding='SAME', kernel_initializer=k_init, name='conv1_1')(a_d_c1)
@@ -145,7 +145,7 @@ def VGG16(
     else:
         norm_c2 = syn_c2
     a_c2 = lib_snn.activations.Activation(act_type=act_type,name='n_conv2')(norm_c2)
-    a_d_c2 = layers_new.dropout.Dropout_custom17(dropout_conv_r[0], name='conv2_do_cu9')(a_c2)
+    a_d_c2 = layers_new.dropout.Dropout_custom18(dropout_conv_r[0], name='conv2_do_cu9')(a_c2)
     #a_d_c2 = tf.keras.layers.Dropout(dropout_conv_r[0], name='conv2_do')(a_c2)
     #x = lib_snn.layers.Conv2D(channels, 3, padding='SAME', activation=act_relu, use_bn=use_bn_feat, kernel_initializer=k_init, name='conv2_1')(x)
     syn_c2_1 = lib_snn.layers.Conv2D(channels, 3, padding='SAME', kernel_initializer=k_init, name='conv2_1')(a_d_c2)
@@ -168,7 +168,7 @@ def VGG16(
     else:
         norm_c3 = syn_c3
     a_c3 = lib_snn.activations.Activation(act_type=act_type,name='n_conv3')(norm_c3)
-    a_d_c3 = layers_new.dropout.Dropout_custom17(dropout_conv_r[1], name='conv3_do_cu9')(a_c3)
+    a_d_c3 = layers_new.dropout.Dropout_custom18(dropout_conv_r[1], name='conv3_do_cu9')(a_c3)
     #a_d_c3 = tf.keras.layers.Dropout(dropout_conv_r[1], name='conv3_do')(a_c3)
     #x = lib_snn.layers.Conv2D(channels, 3, padding='SAME', activation=act_relu, use_bn=use_bn_feat, kernel_initializer=k_init, name='conv3_1')(x)
     syn_c3_1 = lib_snn.layers.Conv2D(channels, 3, padding='SAME', kernel_initializer=k_init, name='conv3_1')(a_d_c3)
@@ -177,7 +177,7 @@ def VGG16(
     else:
         norm_c3_1 = syn_c3_1
     a_c3_1 = lib_snn.activations.Activation(act_type=act_type,name='n_conv3_1')(norm_c3_1)
-    a_d_c3_1 = layers_new.dropout.Dropout_custom17(dropout_conv_r[1], name='conv3_1_do_cu9')(a_c3_1)
+    a_d_c3_1 = layers_new.dropout.Dropout_custom18(dropout_conv_r[1], name='conv3_1_do_cu9')(a_c3_1)
     #a_d_c3_1 = tf.keras.layers.Dropout(dropout_conv_r[1], name='conv3_1_do')(a_c3_1)
     #x = lib_snn.layers.Conv2D(channels, 3, padding='SAME', activation=act_relu, use_bn=use_bn_feat, kernel_initializer=k_init, name='conv3_2')(x)
     syn_c3_2 = lib_snn.layers.Conv2D(channels, 3, padding='SAME', kernel_initializer=k_init, name='conv3_2')(a_d_c3_1)
@@ -200,7 +200,7 @@ def VGG16(
     else:
         norm_c4 = syn_c4
     a_c4 = lib_snn.activations.Activation(act_type=act_type,name='n_conv4')(norm_c4)
-    a_d_c4 = layers_new.dropout.Dropout_custom17(dropout_conv_r[1], name='conv4_do_cu9')(a_c4)
+    a_d_c4 = layers_new.dropout.Dropout_custom18(dropout_conv_r[1], name='conv4_do_cu9')(a_c4)
     #a_d_c4 = tf.keras.layers.Dropout(dropout_conv_r[1], name='conv4_do')(a_c4)
     #x = lib_snn.layers.Conv2D(channels, 3, padding='SAME', activation=act_relu, use_bn=use_bn_feat, kernel_initializer=k_init, name='conv4_1')(x)
     syn_c4_1 = lib_snn.layers.Conv2D(channels, 3, padding='SAME', kernel_initializer=k_init, name='conv4_1')(a_d_c4)
@@ -209,7 +209,7 @@ def VGG16(
     else:
         norm_c4_1 = syn_c4_1
     a_c4_1 = lib_snn.activations.Activation(act_type=act_type,name='n_conv4_1')(norm_c4_1)
-    a_d_c4_1 = layers_new.dropout.Dropout_custom17(dropout_conv_r[1], name='conv4_1_do_cu9')(a_c4_1)
+    a_d_c4_1 = layers_new.dropout.Dropout_custom18(dropout_conv_r[1], name='conv4_1_do_cu9')(a_c4_1)
     #a_d_c4_1 = tf.keras.layers.Dropout(dropout_conv_r[1], name='conv4_1_do')(a_c4_1)
     #x = lib_snn.layers.Conv2D(channels, 3, padding='SAME', activation=act_relu, use_bn=use_bn_feat, kernel_initializer=k_init, name='conv4_2')(x)
     syn_c4_2 = lib_snn.layers.Conv2D(channels, 3, padding='SAME', kernel_initializer=k_init, name='conv4_2')(a_d_c4_1)
@@ -232,7 +232,7 @@ def VGG16(
     else:
         norm_c5 = syn_c5
     a_c5 = lib_snn.activations.Activation(act_type=act_type,name='n_conv5')(norm_c5)
-    a_d_c5 = layers_new.dropout.Dropout_custom17(dropout_conv_r[1], name='conv5_do_cu9')(a_c5)
+    a_d_c5 = layers_new.dropout.Dropout_custom18(dropout_conv_r[1], name='conv5_do_cu9')(a_c5)
     #a_d_c5 = tf.keras.layers.Dropout(dropout_conv_r[1], name='conv5_do')(a_c5)
     #x = lib_snn.layers.Conv2D(channels, 3, padding='SAME', activation=act_relu, use_bn=use_bn_feat, kernel_initializer=k_init, name='conv5_1')(x)
     syn_c5_1 = lib_snn.layers.Conv2D(channels, 3, padding='SAME', kernel_initializer=k_init, name='conv5_1')(a_d_c5)
@@ -241,7 +241,7 @@ def VGG16(
     else:
         norm_c5_1 = syn_c5_1
     a_c5_1 = lib_snn.activations.Activation(act_type=act_type,name='n_conv5_1')(norm_c5_1)
-    a_d_c5_1 = layers_new.dropout.Dropout_custom17(dropout_conv_r[1], name='conv5_1_do_cu9')(a_c5_1)
+    a_d_c5_1 = layers_new.dropout.Dropout_custom18(dropout_conv_r[1], name='conv5_1_do_cu9')(a_c5_1)
     #a_d_c5_1 = tf.keras.layers.Dropout(dropout_conv_r[1], name='conv5_1_do')(a_c5_1)
     #x = lib_snn.layers.Conv2D(channels, 3, padding='SAME', activation=act_relu, use_bn=use_bn_feat, kernel_initializer=k_init, name='conv5_2')(x)
     syn_c5_2 = lib_snn.layers.Conv2D(channels, 3, padding='SAME', kernel_initializer=k_init, name='conv5_2')(a_d_c5_1)
@@ -258,7 +258,7 @@ def VGG16(
 
     #
     a_p_c5_2_f = tf.keras.layers.Flatten(data_format=data_format,name='flatten')(a_p_c5_2)
-    a_d_c5_2_f = layers_new.dropout.Dropout_custom17(dropout_conv_r[2], name='flatten_do_cu9')(a_p_c5_2_f)
+    a_d_c5_2_f = layers_new.dropout.Dropout_custom18(dropout_conv_r[2], name='flatten_do_cu9')(a_p_c5_2_f)
     #a_d_c5_2_f = tf.keras.layers.Dropout(dropout_conv_r[2], name='flatten_do')(a_p_c5_2_f)
     #x = lib_snn.layers.Dense(n_dim_cls, activation=act_relu, use_bn=use_bn_cls, kernel_initializer=k_init, naimg_input, a_p, batch_size, input_shape,  classes, conf, name=model_nameme='fc1')(x)
     syn_fc1 = lib_snn.layers.Dense(n_dim_cls, kernel_initializer=k_init, name='fc1')(a_d_c5_2_f)
@@ -267,7 +267,7 @@ def VGG16(
     else:
         norm_fc1 = syn_fc1
     a_fc1 = lib_snn.activations.Activation(act_type=act_type,name='n_fc1')(norm_fc1)
-    a_d_fc1 = layers_new.dropout.Dropout_custom17(dropout_conv_r[2], name='fc1_do_cu9')(a_fc1)
+    a_d_fc1 = layers_new.dropout.Dropout_custom18(dropout_conv_r[2], name='fc1_do_cu9')(a_fc1)
     #a_d_fc1 = tf.keras.layers.Dropout(dropout_conv_r[2], name='fc1_do')(a_fc1)
     #x = lib_snn.layers.Dense(n_dim_cls, activation=act_relu, use_bn=use_bn_cls, kernel_initializer=k_init, name='fc2')(x)
     syn_fc2 = lib_snn.layers.Dense(n_dim_cls, kernel_initializer=k_init, name='fc2')(a_d_fc1)
@@ -276,7 +276,7 @@ def VGG16(
     else:
         norm_fc2 = syn_fc2
     a_fc2 = lib_snn.activations.Activation(act_type=act_type,name='n_fc2')(norm_fc2)
-    a_d_fc2 = layers_new.dropout.Dropout_custom17(dropout_conv_r[2], name='fc2_do_cu9')(a_fc2)
+    a_d_fc2 = layers_new.dropout.Dropout_custom18(dropout_conv_r[2], name='fc2_do_cu9')(a_fc2)
     #a_d_fc2 = tf.keras.layers.Dropout(dropout_conv_r[2], name='fc2_do')(a_fc2)
     #x = lib_snn.layers.Dense(classes, activation=act_sm, use_bn=False, last_layer=True, kernel_initializer=k_init, name='predictions')(x)
     syn_p = lib_snn.layers.Dense(classes, last_layer=True, kernel_initializer=k_init, name='predictions')(a_d_fc2)
