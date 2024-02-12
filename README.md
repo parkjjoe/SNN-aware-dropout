@@ -10,7 +10,7 @@ However, applying standard dropout techniques directly to SNNs is challenging. U
 
 Therefore, I propose several new dropout techniques suitable for SNNs.
 
-## How To Use
+## Example Usage
 `x = layers_new.dropout_custom.Dropout_custom10(0.5, name='dropout_custom')(x)`
 
 `layers_new` and `dropout_custom` are the directory and .py file name, respectively.  
