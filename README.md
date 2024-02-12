@@ -13,4 +13,6 @@ Therefore, I propose several new dropout techniques suitable for SNNs.
 ## How To Use
 `x = layers_new.dropout_custom.Dropout_custom10(0.5, name='dropout_custom')(x)`
 
+'layers_new' and 'dropout_custom' are the directory and .py file name, respectively.
+'Dropout_custom10' is the name of the customized dropout class you want to use.
 '0.5' is the dropout rate.
