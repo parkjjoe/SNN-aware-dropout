@@ -18,5 +18,5 @@ x = layers_new.dropout_custom.Dropout_custom10(0.5, name='dropout_custom')(x)
 ```
 
 `layers_new` and `dropout_custom` are the directory and .py file name, respectively.  
-`Dropout_custom10` is the name of the customized dropout class you want to use.  
+`Dropout_custom10` is the customized dropout class name you want to use.  
 `0.5` is the dropout rate.
