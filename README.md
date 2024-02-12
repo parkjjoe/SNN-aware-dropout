@@ -11,6 +11,6 @@ However, applying standard dropout techniques directly to SNNs is challenging. U
 Therefore, I propose several new dropout techniques suitable for SNNs.
 
 ## How To Use
-`x = layers_new.dropout.Dropout_custom(0.5, name='dropout_custom')(x)`
+`x = layers_new.dropout_custom.Dropout_custom(0.5, name='dropout_custom')(x)`
 
 '0.5' is the dropout rate.
